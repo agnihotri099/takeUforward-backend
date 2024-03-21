@@ -9,6 +9,8 @@ const redisClient = require('./redisClient'); // Redis client setup
 router.post('/submit', async (req, res) => {
   const { username, code_language, stdin, source_code } = req.body;
   const query = 'INSERT INTO submissions (username, code_language, stdin, source_code) VALUES (?, ?, ?, ?)';
+
+  console.log("hihiioh")
   
   db.query(query, [username, code_language, stdin, source_code], async (error, results) => {
     if (error) {
